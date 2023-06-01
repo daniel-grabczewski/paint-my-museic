@@ -1,7 +1,12 @@
+import { useState } from 'react'
 import Canvas from './Canvas'
 import ColorPicker from './ColorPicker'
 
 function App() {
+  function selectColor() {}
+
+  const [currentSong, setCurrentSong] = useState()
+
   return (
     <>
       <h1 style={{ textAlign: 'center' }}>Paint my museic</h1>

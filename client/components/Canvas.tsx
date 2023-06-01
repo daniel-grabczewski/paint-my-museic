@@ -1,6 +1,6 @@
+import React, { useEffect } from 'react'
+
 function Canvas() {
-  const sound = new Audio('../public/music/1_Red_Spiderman.mp3')
-  sound.play()
   return (
     <div
       style={{
@@ -14,3 +14,5 @@ function Canvas() {
 }
 
 export default Canvas
+
+//'https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg'
