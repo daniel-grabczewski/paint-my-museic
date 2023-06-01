@@ -27,6 +27,13 @@ Rocio: Back/ front end tech
 Jordan: Git
 Leroy: Vibe
 
+Colour codes:\
+
+Red: A71814
+Blue: 383686  Gren: 88C752
+Black: 181818
+Pink: E664bf
+
 Name of website/heading: PaintMyMuseic
 
 First plan for morning.
