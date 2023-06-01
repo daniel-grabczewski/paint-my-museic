@@ -1,8 +1,24 @@
+import Canvas from './Canvas'
+import ColorPicker from './ColorPicker'
+
 function App() {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <>
+      <h1 style={{ textAlign: 'center' }}>Paint my museic</h1>
+      <div
+        style={{
+          background: 'lightGray',
+          height: '100vh',
+          display: 'flex',
+          gap: '50px',
+          justifyContent: 'center',
+          paddingTop: '50px',
+        }}
+      >
+        <Canvas />
+        <ColorPicker />
+      </div>
+    </>
   )
 }
 
