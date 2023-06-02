@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react'
 function Canvas({ currentColor, currentMusic }) {
   const [colors, setColors] = useState(new Array(8750).fill('white'))
 
-  const handleMouseDown = (index) => {
+  const handleMouseDown = (index: number) => {
     setColors(colors.map((color, i) => (i === index ? currentColor : color)))
   }
 
-  const handleMouseOver = (index) => {
+  const handleMouseOver = (index: number) => {
     setColors(colors.map((color, i) => (i === index ? currentColor : color)))
   }
 

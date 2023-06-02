@@ -5,10 +5,10 @@ import data from '../data/data'
 import '../public/main.css'
 
 function App() {
-  const [currentColor, setCurrentColor] = useState(data[0].color) // Initialize with 'none'
-  const [currentMusic, setCurrentMusic] = useState(data[0].music) // Initialize with ''
+  const [currentColor, setCurrentColor] = useState('white') // Initialize with 'none'
+  const [currentMusic, setCurrentMusic] = useState('') // Initialize with ''
 
-  const selectColor = (color) => {
+  const selectColor = (color: string) => {
     setCurrentColor(color)
     const selectedData = data.find((item) => item.color === color)
     setCurrentMusic(selectedData ? selectedData.music : '')
