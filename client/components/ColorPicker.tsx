@@ -1,18 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import data from '../data/data'
 
-async function playSound() {
-  const sound = new Audio(data[0].music)
-  await new Promise((resolve) => {
-    sound.addEventListener('loadeddata', resolve)
-  })
-  sound.play()
+interface Props {
+  selectColor: (newSong: string) => void
 }
 
-function ColorPicker() {
-  useEffect(() => {
-    playSound()
-  }, [])
+
+function ColorPicker(props: Props) {
+
+
+  const [border, setBorder] = useState('0px 0px 0px black' )
+
+  function isPicked(color: string) {
+    setBorder('10px 5px 5px black' )
+  }
+
+  function handleClick(color: string) {
+    props.selectColor(color)
+    isPicked(color)
+  }
 
   return (
     <div
@@ -28,26 +34,21 @@ function ColorPicker() {
         gap: '25px',
       }}
     >
-      <div
-        style={{ background: '#A71814', height: '70px', width: '70px' }}
-      ></div>
-      <div style={{ background: 'blue', height: '70px', width: '70px' }}></div>
-      <div style={{ background: 'green', height: '70px', width: '70px' }}></div>
-      <div style={{ background: 'pink', height: '70px', width: '70px' }}></div>
-      <div style={{ background: 'black', height: '70px', width: '70px' }}></div>
-      <div
-        style={{ background: 'purple', height: '70px', width: '70px' }}
-      ></div>
-      <div
-        style={{
-          background: 'white',
-          height: '70px',
-          width: '70px',
-          border: '2px solid black',
-        }}
-      ></div>
+      {data.map((element) => (
+        <div key={element.color}
+          style={{ background: element.code, height: '70px', width: '70px', boxShadow: border }} 
+         
+          onClick={() => {
+            handleClick(element.color)
+          }}
+        ></div>
+      ))}
     </div>
   )
 }
+
+//Map out divs.
+//Each div onClick. When it is selected, give it a border
+//Pass through the color of the selection through the function
 
 export default ColorPicker

@@ -3,9 +3,11 @@ import Canvas from './Canvas'
 import ColorPicker from './ColorPicker'
 
 function App() {
-  function selectColor() {}
+  function selectColor(newSong: string) {
+    setCurrentSong(newSong)
+  }
 
-  const [currentSong, setCurrentSong] = useState()
+  const [currentSong, setCurrentSong] = useState('none')
 
   return (
     <>
@@ -21,10 +23,24 @@ function App() {
         }}
       >
         <Canvas />
-        <ColorPicker />
+        <ColorPicker selectColor={selectColor} />
       </div>
     </>
   )
 }
 
 export default App
+
+//currentSong={currentSong}
+
+// async function playSound() {
+//   const sound = new Audio(data[0].music)
+//   await new Promise((resolve) => {
+//     sound.addEventListener('loadeddata', resolve)
+//   })
+//   sound.play()
+// }
+
+// useEffect(() => {
+//   playSound()
+// }, [])
