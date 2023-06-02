@@ -2,32 +2,48 @@ import React, { useState, useEffect } from 'react'
 
 function Canvas({ currentColor, currentMusic }) {
   const [colors, setColors] = useState(new Array(8750).fill('white'))
+  const [isDrawing, setIsDrawing] = useState(false)
 
   const handleMouseDown = (index: number) => {
+    setIsDrawing(true)
     setColors(colors.map((color, i) => (i === index ? currentColor : color)))
   }
 
   const handleMouseOver = (index: number) => {
-    setColors(colors.map((color, i) => (i === index ? currentColor : color)))
+    if (isDrawing) {
+      setColors(colors.map((color, i) => (i === index ? currentColor : color)))
+    }
+  }
+
+  const handleMouseUp = () => {
+    setIsDrawing(false)
   }
 
   useEffect(() => {
     const audioPlayer = document.getElementById('audioPlayer')
-    if (audioPlayer) {
+    if (audioPlayer && isDrawing) {
       audioPlayer.play()
+    } else if (audioPlayer) {
+      audioPlayer.pause()
     }
-  }, [currentMusic])
+  }, [isDrawing, currentMusic])
+
+  useEffect(() => {
+    if (currentColor === 'white' && currentMusic === '') {
+      setColors(new Array(8750).fill('white'))
+    }
+  }, [currentColor, currentMusic])
 
   return (
     <div
-      onMouseUp={() => {}}
+      onMouseUp={handleMouseUp}
       style={{
         minWidth: '1250px',
         minHeight: '700px',
         maxWidth: '1250px',
         maxHeight: '700px',
         background: 'white',
-        border: '2px solid black',
+        border: '20px solid black',
         display: 'flex',
         flexWrap: 'wrap',
         margin: '0px',
@@ -48,7 +64,7 @@ function Canvas({ currentColor, currentMusic }) {
           }}
         ></div>
       ))}
-      <audio src={currentMusic} autoPlay id="audioPlayer"></audio>
+      <audio src={currentMusic} id="audioPlayer"></audio>
     </div>
   )
 }

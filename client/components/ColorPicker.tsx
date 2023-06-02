@@ -33,6 +33,7 @@ function ColorPicker(props: Props) {
         justifyContent: 'center',
         alignItems: 'center',
         gap: '25px',
+        borderRadius: '30px',
       }}
     >
       {colorArr.map((element) => (
@@ -42,6 +43,7 @@ function ColorPicker(props: Props) {
             background: element.code,
             height: '70px',
             width: '70px',
+            borderRadius: '20%',
             boxShadow: element.isPicked
               ? '10px 5px 5px grey'
               : '0px 0px 0px grey',

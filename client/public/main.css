@@ -1,5 +1,5 @@
 body {
-  background-color: #faf8f1;
+  background-color: white;
   color: #0a1520;
   font-family: 'Poppins', sans-serif;
 }
@@ -8,3 +8,7 @@ body {
 
 
 
+* {
+  margin : 0px;
+  padding : 0px
+}
