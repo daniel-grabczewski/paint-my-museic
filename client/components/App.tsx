@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Canvas from './Canvas'
 import ColorPicker from './ColorPicker'
+import '../public/main.css'
 
 function App() {
   function selectColor() {}
