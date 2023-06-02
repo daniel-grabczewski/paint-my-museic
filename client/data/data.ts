@@ -29,24 +29,24 @@ const data = [
     music: 'client/public/music/5_Pink_Barbie.mp3',
     isPicked: false,
   },
-  {
-    color: 'random',
-    code: 'purple',
-    music: 'client/public/music/8_Random_Guardians of the Galaxy.mp3',
-    isPicked: false,
-  },
+  // {
+  //   color: 'random',
+  //   code: 'purple',
+  //   music: 'client/public/music/8_Random_Guardians of the Galaxy.mp3',
+  //   isPicked: false,
+  // },
   {
     color: 'white',
-    code: 'grey',
+    code: 'white',
     music: 'client/public/music/7_White_Mad World.mp3',
     isPicked: false,
   },
-  {
-    color: 'none',
-    code: '#',
-    music: '',
-    isPicked: false,
-  },
+  // {
+  //   color: 'none',
+  //   code: '#',
+  //   music: '',
+  //   isPicked: false,
+  // },
 ]
 
 export default data

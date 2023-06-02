@@ -5,19 +5,20 @@ interface Props {
   selectColor: (newSong: string) => void
 }
 
-
 function ColorPicker(props: Props) {
-
-
-  const [border, setBorder] = useState('0px 0px 0px black' )
-
-  function isPicked(color: string) {
-    setBorder('10px 5px 5px black' )
-  }
+  const [colorArr, setColorArr] = useState(data)
 
   function handleClick(color: string) {
     props.selectColor(color)
-    isPicked(color)
+
+    const selected = [...colorArr]
+
+    selected.map((obj) => (obj.isPicked = false))
+
+    const index = selected.findIndex((obj) => obj.color === color)
+    selected[index].isPicked = true
+
+    setColorArr(selected)
   }
 
   return (
@@ -25,7 +26,7 @@ function ColorPicker(props: Props) {
       style={{
         width: '200px',
         height: '700px',
-        background: 'white',
+        background: 'lightGrey',
         border: '2px solid black',
         display: 'flex',
         flexDirection: 'column',
@@ -34,10 +35,17 @@ function ColorPicker(props: Props) {
         gap: '25px',
       }}
     >
-      {data.map((element) => (
-        <div key={element.color}
-          style={{ background: element.code, height: '70px', width: '70px', boxShadow: border }} 
-         
+      {colorArr.map((element) => (
+        <div
+          key={element.color}
+          style={{
+            background: element.code,
+            height: '70px',
+            width: '70px',
+            boxShadow: element.isPicked
+              ? '10px 5px 5px grey'
+              : '0px 0px 0px grey',
+          }}
           onClick={() => {
             handleClick(element.color)
           }}

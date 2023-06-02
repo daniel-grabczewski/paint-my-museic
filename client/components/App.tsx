@@ -3,11 +3,13 @@ import Canvas from './Canvas'
 import ColorPicker from './ColorPicker'
 
 function App() {
-  function selectColor(newSong: string) {
-    setCurrentSong(newSong)
+  function selectColor(color: string) {
+    //setCurrentSong(newSong)
+    console.log(color)
+    setCurrentColor(color)
   }
 
-  const [currentSong, setCurrentSong] = useState('none')
+  const [currentColor, setCurrentColor] = useState('none')
 
   return (
     <>
@@ -22,7 +24,7 @@ function App() {
           paddingTop: '50px',
         }}
       >
-        <Canvas />
+        <Canvas currentColor={currentColor}/>
         <ColorPicker selectColor={selectColor} />
       </div>
     </>
