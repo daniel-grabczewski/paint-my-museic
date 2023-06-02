@@ -4,6 +4,10 @@ import data from '../data/data'
 interface Props {
   selectColor: (newSong: string) => void
 }
+function ColorPicker({ selectColor }) {
+  const handleColorClick = (color) => {
+    selectColor(color)
+  }
 
 function ColorPicker(props: Props) {
   const [colorArr, setColorArr] = useState(data)

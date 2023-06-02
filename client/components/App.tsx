@@ -1,16 +1,18 @@
 import { useState } from 'react'
 import Canvas from './Canvas'
 import ColorPicker from './ColorPicker'
+import data from '../data/data'
 import '../public/main.css'
 
 function App() {
-  function selectColor(color: string) {
-    //setCurrentSong(newSong)
-    console.log(color)
-    setCurrentColor(color)
-  }
+  const [currentColor, setCurrentColor] = useState(data[0].color) // Initialize with 'none'
+  const [currentMusic, setCurrentMusic] = useState(data[0].music) // Initialize with ''
 
-  const [currentColor, setCurrentColor] = useState('none')
+  const selectColor = (color) => {
+    setCurrentColor(color)
+    const selectedData = data.find((item) => item.color === color)
+    setCurrentMusic(selectedData ? selectedData.music : '')
+  }
 
   return (
     <>
@@ -25,7 +27,7 @@ function App() {
           paddingTop: '50px',
         }}
       >
-        <Canvas currentColor={currentColor}/>
+        <Canvas currentColor={currentColor} currentMusic={currentMusic} />
         <ColorPicker selectColor={selectColor} />
       </div>
     </>
